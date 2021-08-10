@@ -6,6 +6,7 @@ import storage from 'redux-persist/lib/storage'
 import counterReducer from "./Counter/counter.reducer";
 import authReducer from "./Auth/auth.reducer";
 import messageReducer from "./Message/message.reducer";
+import contohReducer from "./Contoh/contoh.reducer";
 import counterPersistReducer from "./CounterPersist/counterPersist.reducer";
  
 //persistConfig 
@@ -18,9 +19,10 @@ const rootPersistConfig = {
 //Reducer di combine
 const rootReducer = combineReducers({
   counter: counterReducer,
-  counterPersist: counterPersistReducer,
+  counterPersist: counterPersistReducer, //persisted 
   auth: authReducer,
-  message: messageReducer
+  message: messageReducer,
+  contoh: contohReducer,
 });
 
 export default persistReducer(rootPersistConfig, rootReducer);

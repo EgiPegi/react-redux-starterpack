@@ -12,6 +12,7 @@ import Profile from "./pages/profile.page";
 import BoardUser from "./pages/board-user.page";
 import BoardModerator from "./pages/board-moderator.page";
 import BoardAdmin from "./pages/board-admin.page";
+import CrudContoh from "./pages/crud.pages";
 
 import { logout } from "./redux/Auth/auth.action";
 import { clearMessage } from "./redux/Message/message.action";
@@ -19,6 +20,8 @@ import { clearMessage } from "./redux/Message/message.action";
 import { history } from "./helpers/history";
 
 import EventBus from "./common/EventBus";
+import CrudAddContoh from "./pages/crud.add.page";
+import CrudEditContoh from "./pages/crud.edit.pahe";
 
 class App extends Component {
   constructor(props) {
@@ -73,7 +76,10 @@ class App extends Component {
         <div>
           {/* Basic Navbar Bootstrap Nyontoh di https://getbootstrap.com/docs/4.6/components/navbar/ */}
           {/* Basic react-router-dom Lebih lengkap di https://reactrouter.com/web/guides/quick-start */}
-          <nav className="navbar navbar-expand navbar-dark pr-5 pl-5" style={{backgroundColor: "#182C61"}}>
+          <nav
+            className="navbar navbar-expand navbar-dark pr-5 pl-5"
+            style={{ backgroundColor: "#182C61" }}
+          >
             <Link to={"/"} className="navbar-brand">
               Contoh Redux
             </Link>
@@ -81,6 +87,11 @@ class App extends Component {
               <li className="nav-item">
                 <Link to={"/home"} className="nav-link">
                   Home
+                </Link>
+              </li>
+              <li className="nav-item">
+                <Link to={"/crud"} className="nav-link">
+                  CRUD
                 </Link>
               </li>
 
@@ -142,6 +153,9 @@ class App extends Component {
           <div className="container-fluid p-5">
             <Switch>
               <Route exact path={["/", "/home"]} component={Home} />
+              <Route exact path="/crud" component={CrudContoh} />
+              <Route exact path="/add" component={CrudAddContoh} />
+              <Route path="/edit/:id" component={CrudEditContoh} />
               <Route exact path="/login" component={Login} />
               <Route exact path="/register" component={Register} />
               <Route exact path="/profile" component={Profile} />
